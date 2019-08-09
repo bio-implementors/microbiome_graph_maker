@@ -1,0 +1,28 @@
+<h1>Listing graphs</h1>
+<%= link_to 'New graph', new_graph_path %>
+<table>
+  <tr>
+    <th>File name</th>
+    <th>Taxonomic level</th>
+    <th>Clade number</th>
+    <th>Upload graph</th>
+    <th>Upload legend</th>
+    <th></th>
+  </tr>
+ 
+  <% @graphs.each do |graph| %>
+    <tr>
+      <td><%= graph.file_name %></td>
+      <td><%= graph.tax_level %></td>
+      <td><%= graph.clade_num %></td>
+      <td><%= graph.upload_graph.attached? %></td>
+      <td><%= graph.upload_legend.attached? %></td>
+      
+      <td><%= link_to 'Show', graph_path(graph) %></td>
+      <td><%= link_to 'Edit', edit_graph_path(graph) %></td>
+       <td><%= link_to 'Destroy', graph_path(graph),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

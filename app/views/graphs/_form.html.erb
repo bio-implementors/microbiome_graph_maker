@@ -1,0 +1,39 @@
+<%= form_with model: @graph, local: true do |form| %>
+  <% if @graph.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@graph.errors.count, "error") %> prohibited
+        this graph from being saved:
+      </h2>
+      <ul>
+        <% @graph.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  
+  <p>
+    <%= form.label :Save_file_name %>
+    <%= form.text_field :file_name %> 
+    <br>
+
+	<%= form.label :Taxonomic_level %>
+  	<%= form.select :tax_level, [['Kingdom','kingdom'], ['Phylum', 'phylum'], ['Class', 'class'], ['Order', 'order'], ['Family', 'family'], ['Genus', 'genus'], ['Species', 'species']] %>
+  	<br>
+  	
+  	<%= form.label :Number_of_clades %>
+  	<%= form.text_field :clade_num %>
+  </p>
+ 
+  <p>
+  	<label for="upload_graph">Graph File</label> : 
+  	<%= form.file_field :upload_graph %>
+  	<br>
+	<label for="upload_legend">Legend File</label> : 
+	<%= form.file_field :upload_legend %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

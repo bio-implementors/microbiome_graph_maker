@@ -1,0 +1,27 @@
+<p>
+	<strong>file_name:</strong>
+	<%= @graph.file_name %>
+</p>
+
+<p>
+	<strong>tax_level:</strong>
+	<%= @graph.tax_level %>
+</p>
+
+<p>
+	<strong>clade_num:</strong>
+	<%= @graph.clade_num %>
+</p>
+
+<p>
+	<strong>upload_graph:</strong>
+	<%= @graph.upload_graph %>
+</p>
+
+<p>
+	<strong>upload_legend:</strong>
+	<%= @graph.upload_legend %>
+</p>
+
+<%= link_to 'Edit', edit_graph_path(@graph) %> |
+<%= link_to 'Back', graphs_path %>
